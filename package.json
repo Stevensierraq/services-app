@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "author": "Steven Sierra",
   "license": "MIT",
-  "homepage": "https://Stevensierraq/services-app",
+  "homepage": "https://stevensierraq.github.io/services-app",
   "description": "SPA with react for services",
   "dependencies": {
     "@material-ui/core": "^3.5.1",
