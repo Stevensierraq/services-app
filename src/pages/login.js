@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { login } from '../actionCreators';
 import LoginForm from '../components/forms/login-form';
 import '../App.css';
 
 class Login extends Component {
-  submit = values => {
-    // print the form values to the console
-    console.log(values)
+  submit = (user) => {
+    const {login, history} = this.props
+    if(user.userName === "liftit" && user.password === "contratame"){
+        login(user);
+        history.push('/dashboard');
+    }else{
+        alert('Incorrect user or password')
+    }
   }
 
   render() {
@@ -19,4 +27,18 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const mapStateToProps = state => {
+    return {
+      isAuth: state.authenticate
+    };
+};
+  
+const mapDispatchProps = dispatch => {
+    return {
+      login(user) {
+        dispatch(login(user));
+      }
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchProps)(Login);

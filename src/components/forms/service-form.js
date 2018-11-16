@@ -9,10 +9,11 @@ import ShippingIcon from '@material-ui/icons/LocalShipping';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-const validate = ({userName, password}) => {
+const validate = ({description, from, to}) => {
     const errors = {}
-    if(!userName) errors.userName = 'Required'
-    if(!password) errors.password = 'Required'
+    if(!description) errors.description = 'Required'
+    if(!from) errors.from = 'Required'
+    if(!to) errors.to = 'Required'
 
     return errors
 }

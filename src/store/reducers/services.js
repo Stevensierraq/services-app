@@ -1,9 +1,10 @@
 const services = (state=[], action) => {
     switch (action.type) {
       case 'ADD_SERVICE':
-        return state.concat(action.service)
+        const date = new Date().toLocaleString();
+        return state.concat({...action.service, date})
       case 'DELETE_SERVICE':
-        return state.concat(action.service)
+        return state.filter(service => service.date !== action.service)
       default: 
         return state;
     }

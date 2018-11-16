@@ -11,8 +11,24 @@ const addService = service => {
       service
     };
   };
+
+  const login = user => {
+    return {
+      type: 'LOGIN',
+      user
+    };
+  };
+
+  const logout = user => {
+    return {
+      type: 'LOGOUT',
+      user
+    };
+  };
   
   export {
     addService,
-    deleteService
+    deleteService,
+    login,
+    logout
   };

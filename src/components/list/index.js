@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 
 import Item from './item';
 
-function List ({services}) {
+function List ({services, deleteService}) {
     if(services.length === 0) {
         return<Typography 
                 align="center" 
@@ -20,13 +20,11 @@ function List ({services}) {
 
     return<Grid container>
         {
-          services.map(({from, to, description}) => 
+          services.map(service => 
                 <Item 
-                    to={to}
-                    from={from}
-                    description={description}
-                    handler={()=>{}}
-                    key={description}
+                    {...service}
+                    handler={deleteService}
+                    key={service.description}
                 />
             )  
         }

@@ -20,7 +20,7 @@ const styles = {
 };
 
 function Header(props) {
-  const { classes } = props;
+  const { classes, handleLogout } = props;
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -28,7 +28,7 @@ function Header(props) {
           <Typography variant="h6" color="inherit" className={classes.grow}>
             SERVICES APP
           </Typography>
-          <Button color="inherit">Logout</Button>
+          <Button color="inherit" onClick={handleLogout}>Logout</Button>
         </Toolbar>
       </AppBar>
     </div>
@@ -37,6 +37,7 @@ function Header(props) {
 
 Header.propTypes = {
   classes: PropTypes.object.isRequired,
+  handleLogout: PropTypes.func.isRequired
 };
 
 export default withStyles(styles)(Header);

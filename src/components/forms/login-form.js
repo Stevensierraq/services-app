@@ -18,21 +18,22 @@ const validate = ({userName, password}) => {
 }
 
 const renderInput = ({ input, meta: {error, touched}, label }) => 
-    <div style={{margin: 10}}>
+    <div style={{margin: 12}}>
         <FormControl error={error && touched}>
             <InputLabel htmlFor={label}>{label}</InputLabel>
             <Input
-            id={label}
-            inputProps={{...input}}
-            startAdornment={
-                <InputAdornment position="start">
-                    {
-                        input.name === 'password'
-                        ? <KeyIcon />
-                        : <AccountCircle />
-                    }
-                </InputAdornment>
-            }
+                id={label}
+                inputProps={{...input}}
+                type={input.name === "password"? "password" : "text"}
+                startAdornment={
+                    <InputAdornment position="start">
+                        {
+                            input.name === 'password'
+                            ? <KeyIcon />
+                            : <AccountCircle />
+                        }
+                    </InputAdornment>
+                }
             />
         </FormControl>
         {
@@ -44,13 +45,13 @@ const renderInput = ({ input, meta: {error, touched}, label }) =>
 let LoginForm = props => {
   const { handleSubmit } = props
   return (
-      <div style={{ padding: '35px 15px 20px 15px', borderRadius:5, backgroundColor: 'white' }}>
+      <div style={{ padding: '40px 20px 25px 20px', borderRadius:5, backgroundColor: 'white' }}>
         <form onSubmit={handleSubmit}>
             <Typography component="h2" variant="display1" gutterBottom>
                 Services
             </Typography>
             <Field name="userName" label="Username" component={renderInput} type="text" />
-            <Field name="password" label="Password" component={renderInput} type="text" />
+            <Field name="password" type="password" label="Password" component={renderInput} />
             <Button 
                 variant="contained" 
                 size="large" 
